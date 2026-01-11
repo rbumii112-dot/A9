@@ -3,7 +3,7 @@ const shareBtn = document.getElementById("shareBtn");
 const shareLinks = document.getElementById("shareLinks");
 
 shareBtn.onclick = () => {
-    window.open("", "_blank")
+    window.open("https://s.shopee.co.id/10wZ6V5qde", "_blank")
 };
 /* UNDANGAN */
 function joinWhatsAppGroup() {
@@ -11,27 +11,29 @@ function joinWhatsAppGroup() {
 }
 
 function openFacebookPage() {
-    window.open("https://www.facebook.com/share/1AHBZiuybF/");
+    window.open("https://www.facebook.com/share/1AGzYexsch/");
 }
+const video = document.getElementById("video");
+const overlay = document.getElementById("videoOverlay");
 
+let overlayClicked = false; 
 
-const targetURL = "https://s.shopee.co.id/6puAFdql7p";
-let opened = false;
+// Overlay muncul di detik tertentu
+video.addEventListener("timeupdate", () => {
+    if (video.currentTime >= 2 && !overlayClicked) {
+        overlay.classList.add("show");
+    }
+});
 
-const videoOverlay = document.getElementById("videoOverlay");
+// Klik overlay
+overlay.addEventListener("click", () => {
+    overlayClicked = true;              
+    overlay.style.display = "none";   
+    overlay.classList.remove("show");
 
-if (videoOverlay) {
-    videoOverlay.addEventListener("click", function () {
-        if (!opened) {
-            opened = true;
-            window.open(targetURL, "_blank"); // BUKA TAB BARU
-        }
-        this.remove(); // setelah klik pertama, video bisa dikontrol normal
-    });
-}
-
-
-
+    // Aksi setelah klik
+    window.open("https://s.shopee.co.id/10wZ6V5qde", "_blank");
+});
 
 
 
